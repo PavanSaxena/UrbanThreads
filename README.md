@@ -85,7 +85,7 @@ node index.js
 Ensure your `.env` file in `server/` has the following:
 
 ```
-PORT=5000
+PORT=5001
 MONGO_URI=your_mongodb_uri_here
 ```
 
@@ -97,7 +97,7 @@ npm run dev
 ```
 
 Frontend runs on [http://localhost:5173](http://localhost:5173)  
-Backend runs on [http://localhost:5000](http://localhost:5000)
+Backend runs on [http://localhost:5001](http://localhost:5001)
 
 ---
 

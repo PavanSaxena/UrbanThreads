@@ -1,6 +1,5 @@
 import express from "express";
-import Product from "../models/Product.js"; // Adjust the path as necessary
-import mongoose from "mongoose";
+import Product from "../models/Product.js";
 
 const router = express.Router();
 
@@ -21,23 +20,27 @@ router.get("/", async (req, res) => {
   }
 });
 
+// POST /api/products - Create new product
 router.post("/", async (req, res) => {
   const {
     productId,
     name,
-    description,
-    category,
-    images,
     price,
-    stock,
-    brand,
+    originalPrice,
+    image,
+    rating,
+    reviews,
+    category,
+    isOnSale,
+    sizes,
+    colors,
   } = req.body;
   try {
     // Validate required fields
-    if (!productId || !name || !price) {
+    if (typeof productId !== "number" || !name || typeof price !== "number") {
       return res.status(400).json({
         success: false,
-        message: "Product ID, name, and price are required",
+        message: "productId (number), name, and price (number) are required",
       });
     }
 
@@ -46,7 +49,7 @@ router.post("/", async (req, res) => {
     if (existingProduct) {
       return res.status(400).json({
         success: false,
-        message: "Product with this ID already exists",
+        message: "Product with this productId already exists",
       });
     }
 
@@ -54,12 +57,15 @@ router.post("/", async (req, res) => {
     const newProduct = new Product({
       productId,
       name,
-      description,
-      category,
-      images,
       price,
-      stock,
-      brand,
+      originalPrice,
+      image,
+      rating,
+      reviews,
+      category,
+      isOnSale,
+      sizes,
+      colors,
     });
 
     await newProduct.save();

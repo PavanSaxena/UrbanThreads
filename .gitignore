@@ -1,91 +1,172 @@
-# Node modules
+# Dependencies
 node_modules/
-client/node_modules/
-server/node_modules/
-
-# Build output
-dist/
-build/
-client/build/
-client/dist/
-server/build/
-server/dist/
-
-# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Environment variables
+# Environment variables and secrets
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-client/.env
-client/.env.*.local
-server/.env
-server/.env.*.local
+.env.production
+.env.staging
 
-# OS files
-.DS_Store
-Thumbs.db
-ehthumbs.db
-Icon?
-Desktop.ini
-
-# IDE files
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-
-# Coverage
-coverage/
-client/coverage/
-server/coverage/
-
-# Misc
-*.log
-*.tgz
-*.gz
-*.zip
-
-# React Native
-.expo/
-
-# Storybook
-.storybook/
-*.story.*
-*.stories.*
-
-# Cypress
-cypress/videos/
-cypress/screenshots/
-
-# VSCode settings
-*.code-workspace
-
-# Local databases
+# Database
+*.db
 *.sqlite
 *.sqlite3
-*.db
 
-# Others
+# Build outputs
+/build
+/dist
+/.next/
+/out/
+
+# Cache directories
+.cache/
+.parcel-cache/
+.nuxt/
+.vuepress/dist
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env.test
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.tmp
+*.temp
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary folders
+tmp/
+temp/
+
+# Upload directories (if you have file uploads)
+uploads/
+public/uploads/
+
+# SSL certificates
 *.pem
-*.p12
 *.key
 *.crt
 *.csr
 
-# Mac system files
-.AppleDouble
-.LSOverride
+# JWT secrets and keys
+jwt-secret.txt
+private.key
+public.key
 
-# npm package lock files (optional, if you want to ignore them)
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Package manager lock files (optional - some teams prefer to commit these)
 # package-lock.json
 # yarn.lock
-# pnpm-lock.yaml
+
+# Production build configs
+docker-compose.override.yml
+docker-compose.prod.yml
+
+# Monitoring and analytics
+.awcache/
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*

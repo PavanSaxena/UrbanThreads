@@ -3,55 +3,56 @@ import mongoose from "mongoose";
 const productSchema = new mongoose.Schema(
   {
     productId: {
-      type: String,
+      type: Number,
       required: true,
-      unique: true,
+      unique: true, // Ensures productId is unique
     },
     name: {
       type: String,
       required: true,
       trim: true,
     },
-    description: {
+    price: {
+      type: Number,
+      required: true,
+    },
+    originalPrice: {
+      type: Number,
+    },
+    image: {
       type: String,
       trim: true,
+    },
+    rating: {
+      type: Number,
+      default: 0,
+    },
+    reviews: {
+      type: Number,
+      default: 0,
     },
     category: {
       type: String,
       trim: true,
     },
-    images: [
+    isOnSale: {
+      type: Boolean,
+      default: false,
+    },
+    sizes: [
       {
         type: String,
         trim: true,
       },
     ],
-    price: {
-      type: Number,
-      required: true,
-    },
-    stock: {
-      type: Number,
-      default: 0,
-    },
-    brand: {
-      type: String,
-      trim: true,
-    },
-    ratings: {
-      type: Number,
-      default: 0,
-    },
-    reviews: [
+    colors: [
       {
-        user: { type: String },
-        comment: { type: String },
-        rating: { type: Number },
-        date: { type: Date, default: Date.now },
+        type: String,
+        trim: true,
       },
     ],
   },
-  { timestamps: true }
+  { timestamps: true, versionKey: false }
 );
 
 export default mongoose.model("Product", productSchema);

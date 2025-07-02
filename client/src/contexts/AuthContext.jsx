@@ -1,9 +1,8 @@
-import React, { createContext, useContext, useReducer, useEffect } from 'react';
+import React, { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 const AuthContext = createContext();
 
-// Auth reducer
 const authReducer = (state, action) => {
   switch (action.type) {
     case 'LOGIN_START':
@@ -48,7 +47,6 @@ const authReducer = (state, action) => {
   }
 };
 
-// Initial state
 const initialState = {
   isAuthenticated: false,
   user: null,
@@ -57,11 +55,9 @@ const initialState = {
   error: null
 };
 
-// Auth provider component
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  // Configure axios defaults
   useEffect(() => {
     if (state.token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${state.token}`;
@@ -70,7 +66,6 @@ export const AuthProvider = ({ children }) => {
     }
   }, [state.token]);
 
-  // Check if user is authenticated on app load
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -78,14 +73,13 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  // Load user from token
   const loadUser = async () => {
     try {
       const token = localStorage.getItem('token');
       if (!token) return;
 
-      const response = await axios.get('http://localhost:5000/api/auth/me');
-      
+      const response = await axios.get('http://localhost:5001/api/auth/me');
+
       dispatch({
         type: 'LOGIN_SUCCESS',
         payload: {
@@ -103,25 +97,24 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Login function
   const login = async (email, password) => {
     dispatch({ type: 'LOGIN_START' });
-    
+
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
+      const response = await axios.post('http://localhost:5001/api/auth/login', {
         email,
         password
       });
 
       const { user, token } = response.data.data;
-      
+
       localStorage.setItem('token', token);
-      
+
       dispatch({
         type: 'LOGIN_SUCCESS',
         payload: { user, token }
       });
-      
+
       return { success: true };
     } catch (error) {
       const errorMessage = error.response?.data?.message || 'Login failed';
@@ -133,26 +126,25 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Register function
   const register = async (name, email, password) => {
     dispatch({ type: 'LOGIN_START' });
-    
+
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', {
+      const response = await axios.post('http://localhost:5001/api/auth/register', {
         name,
         email,
         password
       });
 
       const { user, token } = response.data.data;
-      
+
       localStorage.setItem('token', token);
-      
+
       dispatch({
         type: 'LOGIN_SUCCESS',
         payload: { user, token }
       });
-      
+
       return { success: true };
     } catch (error) {
       const errorMessage = error.response?.data?.message || 'Registration failed';
@@ -164,16 +156,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Logout function
   const logout = () => {
     localStorage.removeItem('token');
     dispatch({ type: 'LOGOUT' });
   };
 
-  // Clear error function
-  const clearError = () => {
+  // ✅ Memoized version to avoid re-renders
+  const clearError = useCallback(() => {
     dispatch({ type: 'CLEAR_ERROR' });
-  };
+  }, []);
 
   const value = {
     ...state,
@@ -190,7 +181,6 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use auth context
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

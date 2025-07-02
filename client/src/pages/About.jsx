@@ -62,7 +62,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -80,15 +80,15 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-indigo-600 mb-2">
+                <div className="text-4xl md:text-5xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-600 font-medium">
+                <div className="text-gray-600 dark:text-gray-300 font-medium">
                   {stat.label}
                 </div>
               </div>
@@ -98,34 +98,34 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
                 Our Mission
               </h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
                 At UrbanThreads, we believe that exceptional fashion should be accessible to everyone. 
                 We curate premium clothing that doesn't just look good—it makes you feel confident, 
                 authentic, and ready to conquer the world.
               </p>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 Every piece in our collection tells a story of craftsmanship, sustainability, and style. 
                 We work directly with artisans and ethical manufacturers to bring you clothing that 
                 reflects your values and elevates your wardrobe.
               </p>
               <div className="flex items-center space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-500" />
-                <span className="text-gray-700 font-medium">Ethically sourced materials</span>
+                <CheckCircle className="h-6 w-6 text-green-500 dark:text-green-400" />
+                <span className="text-gray-700 dark:text-gray-300 font-medium">Ethically sourced materials</span>
               </div>
               <div className="flex items-center space-x-4 mt-3">
-                <CheckCircle className="h-6 w-6 text-green-500" />
-                <span className="text-gray-700 font-medium">Fair trade partnerships</span>
+                <CheckCircle className="h-6 w-6 text-green-500 dark:text-green-400" />
+                <span className="text-gray-700 dark:text-gray-300 font-medium">Fair trade partnerships</span>
               </div>
               <div className="flex items-center space-x-4 mt-3">
-                <CheckCircle className="h-6 w-6 text-green-500" />
-                <span className="text-gray-700 font-medium">Carbon-neutral shipping</span>
+                <CheckCircle className="h-6 w-6 text-green-500 dark:text-green-400" />
+                <span className="text-gray-700 dark:text-gray-300 font-medium">Carbon-neutral shipping</span>
               </div>
             </div>
             <div className="relative">
@@ -134,12 +134,12 @@ const About = () => {
                 alt="Fashion design process"
                 className="rounded-2xl shadow-2xl"
               />
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
+              <div className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-colors duration-300">
                 <div className="flex items-center space-x-3">
-                  <Zap className="h-8 w-8 text-yellow-500" />
+                  <Zap className="h-8 w-8 text-yellow-500 dark:text-yellow-400" />
                   <div>
-                    <div className="font-bold text-gray-900">Innovation</div>
-                    <div className="text-sm text-gray-600">Driven by creativity</div>
+                    <div className="font-bold text-gray-900 dark:text-white">Innovation</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Driven by creativity</div>
                   </div>
                 </div>
               </div>
@@ -149,13 +149,13 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Our Values
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               These core principles guide everything we do, from product selection to customer service.
             </p>
           </div>
@@ -164,14 +164,14 @@ const About = () => {
             {values.map((value, index) => {
               const IconComponent = value.icon;
               return (
-                <div key={index} className="text-center p-8 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-colors duration-300">
-                  <div className="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <IconComponent className="h-8 w-8 text-indigo-600" />
+                <div key={index} className="text-center p-8 rounded-2xl bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300">
+                  <div className="bg-indigo-100 dark:bg-indigo-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <IconComponent className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                     {value.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                     {value.description}
                   </p>
                 </div>
@@ -182,36 +182,36 @@ const About = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Our Journey
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300">
               From humble beginnings to global fashion destination
             </p>
           </div>
 
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-indigo-200"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-indigo-200 dark:bg-indigo-800"></div>
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
                 <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
                   <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                    <div className="bg-white p-6 rounded-xl shadow-lg">
-                      <div className="text-2xl font-bold text-indigo-600 mb-2">
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-colors duration-300">
+                      <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">
                         {milestone.year}
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                         {milestone.title}
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-gray-600 dark:text-gray-300">
                         {milestone.description}
                       </p>
                     </div>
                   </div>
-                  <div className="relative z-10 w-4 h-4 bg-indigo-600 rounded-full border-4 border-white shadow-lg"></div>
+                  <div className="relative z-10 w-4 h-4 bg-indigo-600 dark:bg-indigo-400 rounded-full border-4 border-white dark:border-gray-900 shadow-lg"></div>
                   <div className="w-1/2"></div>
                 </div>
               ))}
@@ -221,13 +221,13 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Meet Our Team
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300">
               The passionate individuals behind UrbanThreads
             </p>
           </div>
@@ -243,13 +243,13 @@ const About = () => {
                   />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                   {member.name}
                 </h3>
-                <div className="text-indigo-600 font-semibold mb-4">
+                <div className="text-indigo-600 dark:text-indigo-400 font-semibold mb-4">
                   {member.role}
                 </div>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                   {member.bio}
                 </p>
               </div>
